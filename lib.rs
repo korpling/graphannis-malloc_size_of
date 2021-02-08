@@ -86,7 +86,7 @@ use void::Void;
 type VoidPtrToSizeFn = unsafe extern "C" fn(ptr: *const c_void) -> usize;
 
 /// A closure implementing a stateful predicate on pointers.
-type VoidPtrToBoolFnMut = FnMut(*const c_void) -> bool;
+type VoidPtrToBoolFnMut = dyn FnMut(*const c_void) -> bool;
 
 /// Operations used when measuring heap usage of data structures.
 pub struct MallocSizeOfOps {
@@ -212,6 +212,13 @@ pub trait MallocConditionalShallowSizeOf {
 }
 
 impl MallocSizeOf for String {
+    fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
+        unsafe { ops.malloc_size_of(self.as_ptr()) }
+    }
+}
+
+#[cfg(feature = "smartstring")]
+impl MallocSizeOf for smartstring::alias::String {
     fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
         unsafe { ops.malloc_size_of(self.as_ptr()) }
     }
