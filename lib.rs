@@ -192,7 +192,6 @@ impl MallocSizeOf for String {
 #[cfg(feature = "smartstring")]
 impl MallocSizeOf for smartstring::alias::String {
     fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
-       
         if self.is_inline() {
             return 0;
         }
