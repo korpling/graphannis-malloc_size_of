@@ -20,6 +20,7 @@ The following changes have been made in comparision to the original crate:
     - serde_bytes
     - smallbitvec
     - smallvec
+    - smartstring
     - string_cache 
     - thin-slice
     - time
