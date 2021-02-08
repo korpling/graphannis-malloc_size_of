@@ -1,7 +1,7 @@
 // Copyright 2016-2017 The Servo Project Developers.
 //
-// Licensed under the Apache License, Version 2.0 
-// <http://www.apache.org/licenses/LICENSE-2.0>. 
+// Licensed under the Apache License, Version 2.0
+// <http://www.apache.org/licenses/LICENSE-2.0>.
 // This file may not be copied, modified, or distributed
 // except according to those terms.
 
@@ -75,8 +75,8 @@ extern crate xml5ever;
 use serde_bytes::ByteBuf;
 use std::hash::{BuildHasher, Hash};
 use std::mem::size_of;
-use std::ops::{Deref, DerefMut};
 use std::ops::Range;
+use std::ops::{Deref, DerefMut};
 use std::os::raw::c_void;
 
 #[cfg(feature = "void")]
@@ -578,10 +578,10 @@ impl<T: MallocSizeOf, U> MallocSizeOf for euclid::TypedRect<T, U> {
 #[cfg(feature = "euclid")]
 impl<T: MallocSizeOf, U> MallocSizeOf for euclid::TypedSideOffsets2D<T, U> {
     fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
-        self.top.size_of(ops) +
-            self.right.size_of(ops) +
-            self.bottom.size_of(ops) +
-            self.left.size_of(ops)
+        self.top.size_of(ops)
+            + self.right.size_of(ops)
+            + self.bottom.size_of(ops)
+            + self.left.size_of(ops)
     }
 }
 
@@ -595,34 +595,34 @@ impl<T: MallocSizeOf, U> MallocSizeOf for euclid::TypedSize2D<T, U> {
 #[cfg(feature = "euclid")]
 impl<T: MallocSizeOf, Src, Dst> MallocSizeOf for euclid::TypedTransform2D<T, Src, Dst> {
     fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
-        self.m11.size_of(ops) +
-            self.m12.size_of(ops) +
-            self.m21.size_of(ops) +
-            self.m22.size_of(ops) +
-            self.m31.size_of(ops) +
-            self.m32.size_of(ops)
+        self.m11.size_of(ops)
+            + self.m12.size_of(ops)
+            + self.m21.size_of(ops)
+            + self.m22.size_of(ops)
+            + self.m31.size_of(ops)
+            + self.m32.size_of(ops)
     }
 }
 
 #[cfg(feature = "euclid")]
 impl<T: MallocSizeOf, Src, Dst> MallocSizeOf for euclid::TypedTransform3D<T, Src, Dst> {
     fn size_of(&self, ops: &mut MallocSizeOfOps) -> usize {
-        self.m11.size_of(ops) +
-            self.m12.size_of(ops) +
-            self.m13.size_of(ops) +
-            self.m14.size_of(ops) +
-            self.m21.size_of(ops) +
-            self.m22.size_of(ops) +
-            self.m23.size_of(ops) +
-            self.m24.size_of(ops) +
-            self.m31.size_of(ops) +
-            self.m32.size_of(ops) +
-            self.m33.size_of(ops) +
-            self.m34.size_of(ops) +
-            self.m41.size_of(ops) +
-            self.m42.size_of(ops) +
-            self.m43.size_of(ops) +
-            self.m44.size_of(ops)
+        self.m11.size_of(ops)
+            + self.m12.size_of(ops)
+            + self.m13.size_of(ops)
+            + self.m14.size_of(ops)
+            + self.m21.size_of(ops)
+            + self.m22.size_of(ops)
+            + self.m23.size_of(ops)
+            + self.m24.size_of(ops)
+            + self.m31.size_of(ops)
+            + self.m32.size_of(ops)
+            + self.m33.size_of(ops)
+            + self.m34.size_of(ops)
+            + self.m41.size_of(ops)
+            + self.m42.size_of(ops)
+            + self.m43.size_of(ops)
+            + self.m44.size_of(ops)
     }
 }
 
