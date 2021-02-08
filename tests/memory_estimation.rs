@@ -4,7 +4,6 @@ pub mod platform {
 
     /// Defines which actual function is used.
     ///
-    /// We always use the system malloc instead of jemalloc.
     /// On MacOS X, the external function is not called "malloc_usable_size", but "malloc_size"
     /// (it basically does the same).
     extern "C" {
