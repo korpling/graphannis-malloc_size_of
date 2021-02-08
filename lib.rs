@@ -40,37 +40,6 @@
 //!   measured as well as the thing it points to. E.g.
 //!   `<Box<_> as MallocSizeOf>::size_of(field, ops)`.
 
-#[cfg(feature = "app_units")]
-extern crate app_units;
-#[cfg(feature = "cssparser")]
-extern crate cssparser;
-#[cfg(feature = "euclid")]
-extern crate euclid;
-#[cfg(feature = "hyper")]
-extern crate hyper;
-#[cfg(feature = "hyper_serde")]
-extern crate hyper_serde;
-#[cfg(feature = "serde")]
-extern crate serde;
-#[cfg(feature = "serde_bytes")]
-extern crate serde_bytes;
-#[cfg(feature = "smallbitvec")]
-extern crate smallbitvec;
-#[cfg(feature = "smallvec")]
-extern crate smallvec;
-#[cfg(feature = "string_cache")]
-extern crate string_cache;
-#[cfg(feature = "thin_slice")]
-extern crate thin_slice;
-#[cfg(feature = "time")]
-extern crate time;
-#[cfg(feature = "url")]
-extern crate url;
-#[cfg(feature = "void")]
-extern crate void;
-#[cfg(feature = "xml5ever")]
-extern crate xml5ever;
-
 #[cfg(feature = "serde_bytes")]
 use serde_bytes::ByteBuf;
 use std::hash::{BuildHasher, Hash};
@@ -81,6 +50,9 @@ use std::os::raw::c_void;
 
 #[cfg(feature = "void")]
 use void::Void;
+
+#[cfg(test)]
+mod tests;
 
 /// A C function that takes a pointer to a heap allocation and returns its size.
 type VoidPtrToSizeFn = unsafe extern "C" fn(ptr: *const c_void) -> usize;

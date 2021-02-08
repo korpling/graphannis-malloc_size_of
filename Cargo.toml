@@ -6,6 +6,7 @@ license = "Apache-2.0"
 description = "This is a fork of the `malloc_size_of` crate, which is part of the Servo codebase, to make it available to the graphANNIS corpus search library as dependency."
 repository= "https://github.com/corpus-tools/graphannis-malloc_size_of"
 readme = "README.md"
+edition = "2018"
 
 [lib]
 path = "lib.rs"
@@ -27,3 +28,6 @@ url = { version = "1.2", optional = true }
 void = { version = "1.0.2", optional = true }
 xml5ever = { version = "0.12", optional = true }
 smartstring = {version = "0.2", optional = true }
+
+[target.'cfg(windows)'.dev-dependencies]
+winapi = {version = "0.3", features = ["heapapi"]}
