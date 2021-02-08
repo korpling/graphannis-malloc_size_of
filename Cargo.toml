@@ -1,6 +1,6 @@
 [package]
 name = "graphannis-malloc_size_of"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["The Servo Project Developers", "Thomas Krause <thomaskrause@posteo.de>"]
 license = "Apache-2.0"
 description = "This is a fork of the `malloc_size_of` crate, which is part of the Servo codebase, to make it available to the graphANNIS corpus search library as dependency."
